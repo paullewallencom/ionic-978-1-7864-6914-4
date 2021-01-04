@@ -1,0 +1,12 @@
+<ion-navbar *navbar>
+  <ion-title [innerText]="artist.name"></ion-title>
+</ion-navbar>
+
+<ion-content padding class="artist">
+  <ion-slides id="album-slides">
+    <ion-slide *ngFor="#album of albums">
+      <h3 [innerText]="album.collectionName"></h3>
+      <img [src]="album.artworkUrl100">
+    </ion-slide>
+  </ion-slides>
+</ion-content>

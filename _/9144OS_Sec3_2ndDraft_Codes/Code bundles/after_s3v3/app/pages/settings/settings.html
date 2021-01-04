@@ -1,0 +1,17 @@
+<ion-navbar *navbar>
+  <button menuToggle>
+    <ion-icon name="menu"></ion-icon>
+  </button>
+  <ion-title>Settings</ion-title>
+</ion-navbar>
+
+<ion-content padding class="settings">
+  <ion-list radio-group>
+    <ion-list-header *ngIf="!selectCountry">Pick a country</ion-list-header>
+    <ion-list-header *ngIf="selectCountry">Country selected: <p [style.direction]="selectCountry.rtl ? 'rtl' : 'ltr'" [innerText]="selectCountry.local_name"></p>
+    </ion-list-header>
+    <ion-radio *ngFor="#country of countries" [value]="country.code" [class.active]="selectCountry === country" (select)="selectCountry=country">
+      {{country.name}}
+    </ion-radio>
+  </ion-list>
+</ion-content>

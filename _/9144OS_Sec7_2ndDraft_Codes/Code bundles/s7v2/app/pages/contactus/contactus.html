@@ -1,0 +1,24 @@
+<ion-navbar *navbar>
+  <button menuToggle>
+    <ion-icon name="menu"></ion-icon>
+  </button>
+  <ion-title>Contact us</ion-title>
+</ion-navbar>
+
+<ion-content padding class="contactus">
+  <form [ngFormModel]="contactForm">
+      <ion-input fixed-label>
+        <ion-label>Name</ion-label>
+        <input ngControl="name" type="text">
+        <p [hidden]="contactForm.controls.name.untouched || contactForm.controls.name.valid">Please provide your name</p>
+      </ion-input>
+      <ion-input fixed-label>
+        <ion-label>Email</ion-label>
+        <input ngControl="email" type="email">
+        <p [hidden]="contactForm.controls.email.pristine || contactForm.controls.email.valid">Please provide an email</p>
+      </ion-input>
+      <ion-item>
+        <button (click)="submitForm()">Send</button>
+      </ion-item>
+  </form>
+</ion-content>
